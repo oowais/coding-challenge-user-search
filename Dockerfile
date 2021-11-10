@@ -1,13 +1,13 @@
 # Stage 1
-FROM node:10-alpine as build-step
+FROM node:14-alpine as build
 RUN mkdir -p /app
 WORKDIR /app
-COPY package.json /app
-RUN npm install
 COPY . /app
+RUN npm install
 RUN npm run build --prod
 
 # Stage 2
 FROM nginx:1.17.1-alpine
+WORKDIR /app
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY /dist/coding-challenge-user-search /usr/share/nginx/html
+COPY --from=build /app/dist/coding-challenge-user-search /usr/share/nginx/html
