@@ -20,6 +20,11 @@ export class SearchComponent implements OnInit {
 
   // Submit button is disabled if validator are fulfilled. On press of submit go to next view with ID as parameter.
   onSubmit() {
-    this.router.navigateByUrl('user/'+this.userName.value);
+    this.router.navigateByUrl('user/' + this.userName.value);
+  }
+
+  onRandom() {
+    const randomId = this.dataService.getRandomId();
+    this.router.navigateByUrl('user/' + randomId);
   }
 }

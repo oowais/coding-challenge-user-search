@@ -8,6 +8,6 @@ export interface User {
   location: string | null;
   email: string | null;
   bio: string | null;
-  follower: number | null;
+  followers: number | null;
   following: number | null;
 }

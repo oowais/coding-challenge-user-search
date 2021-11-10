@@ -52,7 +52,7 @@ export class UserDetailsComponent {
         location: data.location,
         email: data.email,
         bio: data.bio,
-        follower: data.follower,
+        followers: data.followers,
         following: data.following
       }
     }, error => {
@@ -91,7 +91,7 @@ export class UserDetailsComponent {
     this.snackBar.open(text, 'close', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
-      duration: 5000
+      duration: 7000
     });
   }
 }
