@@ -15,11 +15,11 @@
     </mat-card-header>
     <img mat-card-image src="{{user.avatar_url}}" alt="Avatar">
     <mat-card-content>
-      <p *ngIf="user.location"> Location: {{user.location}} </p>
-      <p *ngIf="user.follower"> Followers: {{user.follower}} </p>
-      <p *ngIf="user.following"> Following: {{user.following}} </p>
-      <p *ngIf="user.email"> Email: {{user.email}} </p>
-      <p *ngIf="user.bio"> Bio: {{user.bio}} </p>
+      <p *ngIf="user.location"> <b>Location:</b> {{user.location}} </p>
+      <p *ngIf="user.follower"> <b>Followers:</b> {{user.follower}} </p>
+      <p *ngIf="user.following"> <b>Following:</b> {{user.following}} </p>
+      <p *ngIf="user.email"> <b>Email:</b> {{user.email}} </p>
+      <p *ngIf="user.bio"> <b>Bio:</b> {{user.bio}} </p>
     </mat-card-content>
     <mat-card-actions align="end">
       <button mat-button *ngIf="user.html_url" (click)="openUrl(user.html_url)">Profile link</button>
