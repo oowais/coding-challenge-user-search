@@ -15,23 +15,23 @@ In the root of repo, open terminal.
 > NPM version: 8.0.0  
 > Node version: 14.18.0
 
-## In case Angular CLI is not installed, this project is dockerized.
-
+## DOCKER! In case Angular CLI is not installed, this project is dockerized.
 > Docker version 20.10.10, build b485636
 
+###  Run prebuilt image
+- `docker pull wingdoc/coding-challenge:latest`.
+
+### Or build docker image locally
+
 - In the root of repo, open terminal.
-- `docker build -t coding-challenge .`
-
-> `coding-challenge is image-name`  
-> Don't forget the dot at the end of command
-
+- `docker build -t wingdoc/coding-challenge .`.
+ > Don't forget the dot at the end of command
 - You can view the created image via `docker images` command.
-- `docker run -d -it -p80:80/tcp --name coding-challenge coding-challenge:latest`
 
-> `--name coding-challenge` is the name of container
-
-- Goto `localhost` to view the application.
-- To terminate the container type `docker stop coding-challenge`
+### To run docker image (either pulled or self-built) in a container
+- `docker run -d -it -p80:80/tcp --name cc-container wingdoc/coding-challenge:latest`.
+- Goto `localhost` in browser to view the application.
+- To terminate the container type `docker stop cc-container`.
 
 ## Workflow
 
@@ -69,4 +69,6 @@ In the root of repo, open terminal.
 - Routing is handled by `app-routing.module.ts` in `src/app` folder.
 - A model of user attributes is handled by `User` interface. in `src/app/model/user.ts`.
 - `Data.service` handles the REST GET call for GitHub API.
+- The GitHub api has a limit of calls per minute, so please don't spam searches. Otherwise, it will be blocked on that
+  public ip address and unblocked sometime later.
 

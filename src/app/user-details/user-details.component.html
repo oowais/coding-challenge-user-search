@@ -15,18 +15,20 @@
     </mat-card-header>
     <img mat-card-image src="{{user.avatar_url}}" alt="Avatar">
     <mat-card-content>
-      <p *ngIf="user.location"> <b>Location:</b> {{user.location}} </p>
-      <p *ngIf="user.followers"> <b>Followers:</b> {{user.followers}} </p>
-      <p *ngIf="user.following"> <b>Following:</b> {{user.following}} </p>
-      <p *ngIf="user.email"> <b>Email:</b> {{user.email}} </p>
-      <p *ngIf="user.bio"> <b>Bio:</b> {{user.bio}} </p>
+      <p *ngIf="user.location"><b>Location:</b> {{user.location}} </p>
+      <p *ngIf="user.followers"><b>Followers:</b> {{user.followers}} </p>
+      <p *ngIf="user.following"><b>Following:</b> {{user.following}} </p>
+      <p *ngIf="user.email"><b>Email:</b> {{user.email}} </p>
+      <p *ngIf="user.bio"><b>Bio:</b> {{user.bio}} </p>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-stroked-button *ngIf="user.html_url" (click)="openUrl(user.html_url)">Profile <mat-icon>open_in_new</mat-icon></button>
-      <button mat-stroked-button *ngIf="user.blog" (click)="openUrl(user.blog)">Blog <mat-icon>open_in_new</mat-icon></button>
+      <button mat-stroked-button *ngIf="user.html_url" (click)="openUrl(user.html_url)">Profile
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+      <button mat-stroked-button *ngIf="user.blog" (click)="openUrl(user.blog)">Blog
+        <mat-icon>open_in_new</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
-  <mat-card *ngIf="!user" class="item">
-    Nothing to see here :)
-  </mat-card>
+  <mat-spinner *ngIf="!user"></mat-spinner>
 </div>
