@@ -22,8 +22,8 @@
       <p *ngIf="user.bio"> <b>Bio:</b> {{user.bio}} </p>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-button *ngIf="user.html_url" (click)="openUrl(user.html_url)">Profile link</button>
-      <button mat-button *ngIf="user.blog" (click)="openUrl(user.blog)">Blog link</button>
+      <button mat-stroked-button *ngIf="user.html_url" (click)="openUrl(user.html_url)">Profile <mat-icon>open_in_new</mat-icon></button>
+      <button mat-stroked-button *ngIf="user.blog" (click)="openUrl(user.blog)">Blog <mat-icon>open_in_new</mat-icon></button>
     </mat-card-actions>
   </mat-card>
   <mat-card *ngIf="!user" class="item">

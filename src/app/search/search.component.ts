@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {Validators, FormControl} from '@angular/forms';
-import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,8 +10,7 @@ import {Router} from '@angular/router';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private dataService: DataService, private _snackBar: MatSnackBar,
-              private router: Router) {
+  constructor(private dataService: DataService, private router: Router) {
   }
 
   ngOnInit(): void {

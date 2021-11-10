@@ -17,7 +17,7 @@ export class UserDetailsComponent {
               private route: ActivatedRoute,
               private snackBar: MatSnackBar,
               private router: Router) {
-    // As soon as page is loaded, parameter is fetched from address bar and details of current ID are fetched
+    // As soon as page is loaded, parameter is read from address bar and details of current ID are fetched
     this.route.params.subscribe(val => {
       this.getUserDetails(val.id);
     });
