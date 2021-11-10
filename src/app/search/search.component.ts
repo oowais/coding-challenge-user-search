@@ -19,12 +19,16 @@ export class SearchComponent implements OnInit {
   userName = new FormControl('', [Validators.required]);
 
   // Submit button is disabled if validator are fulfilled. On press of submit go to next view with ID as parameter.
-  onSubmit() {
-    this.router.navigateByUrl('user/' + this.userName.value);
+  onSubmit(id:string) {
+    this.router.navigateByUrl('user/' + id);
   }
 
   onRandom() {
     const randomId = this.dataService.getRandomId();
-    this.router.navigateByUrl('user/' + randomId);
+    this.onSubmit(randomId);
+  }
+
+  OnReturnPress() {
+    this.onSubmit(this.userName.value);
   }
 }
