@@ -1,5 +1,9 @@
 # Coding Challenge GitHub User Search
 
+## Online Demo:
+
+### Access demo of this project [here](https://reverent-minsky-7484a4.netlify.app/)
+
 ## Steps to run locally:
 
 > prerequisites: npm and ng
