@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <button mat-mini-fab color="primary" [routerLink]="''">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <span>User Details</span>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+<div class="container">
+  <mat-card *ngIf="user" class="item">
+    <mat-card-header>
+      <mat-card-title>{{user.name}}</mat-card-title>
+      <mat-card-subtitle>{{user.login}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{user.avatar_url}}" alt="Avatar">
+    <mat-card-content>
+      <p *ngIf="user.location"> Location: {{user.location}} </p>
+      <p *ngIf="user.follower"> Followers: {{user.follower}} </p>
+      <p *ngIf="user.following"> Following: {{user.following}} </p>
+      <p *ngIf="user.email"> Email: {{user.email}} </p>
+      <p *ngIf="user.bio"> Bio: {{user.bio}} </p>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button *ngIf="user.html_url" (click)="openUrl(user.html_url)">Profile link</button>
+      <button mat-button *ngIf="user.blog" (click)="openUrl(user.blog)">Blog link</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card *ngIf="!user" class="item">
+    Go back and input an username!
+  </mat-card>
+</div>

@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <span class="spacer"></span>
+  <span>User Search</span>
+  <span class="spacer"></span>
+</mat-toolbar>
+
+
+<div class="container">
+  <mat-form-field appearance="outline" class="item">
+    <mat-label>Input a Github username</mat-label>
+    <input matInput type="text" required [formControl]="userName"/>
+    <mat-hint>Try oowais, ivey, lukas or takeo</mat-hint>
+    <mat-error *ngIf="userName.hasError('required')">
+      User name is <strong>required!</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary" class="item" [disabled]="userName.invalid"
+          (click)="onSubmit()">Submit
+  </button>
+</div>
+
