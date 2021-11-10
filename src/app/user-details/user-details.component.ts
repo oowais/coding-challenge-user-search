@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../model/user';
 import {DataService} from '../data.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -15,7 +15,9 @@ export class UserDetailsComponent {
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private router: Router) {
+    // As soon as page is loaded, parameter is fetched from address bar and details of current ID are fetched
     this.route.params.subscribe(val => {
       this.getUserDetails(val.id);
     });
@@ -38,6 +40,7 @@ export class UserDetailsComponent {
     this.dataService.openLink(url);
   }
 
+  // To fetch the details and handle and show error if some server or other issue.
   getUserDetails(id: string): void {
     this.dataService.getUser(id).subscribe(data => {
       this.user = {
@@ -53,6 +56,7 @@ export class UserDetailsComponent {
         following: data.following
       }
     }, error => {
+      this.router.navigateByUrl('');
       if (error.error instanceof ErrorEvent) {
         this.openSnackBar(`Error: ${error.error.message}`);
       } else {

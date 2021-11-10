@@ -1,3 +1,4 @@
+// Following details can be shows per user
 export interface User {
   login: string; //login is the username
   avatar_url: string | null;
